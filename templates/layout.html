@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Update Variable Value Every Second</title>
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+   <body>
+       
+
+       <table>
+         <tr>
+           <th><h1>variable 1==></h1></th>
+           <th><h1 id="variableValue1"></h1></th>
+           
+         </tr>
+         <tr>
+            <th><h1>variable 2==></h1></th>
+            <th><h1 id="variableValue2"></h1></th>
+         </tr>
+         <tr>
+            <th><h1>variable 3==></h1></th>
+            <th><h1 id="variableValue3"></h1></th>
+          </tr>
+       </table>
+
+      <!-- updates of variable1--> 
+      <script>
+      $(document).ready(function(){
+          // Function to update variable value every second
+          function updateVariable1() {
+              $.get("/get_variable1", function(data){
+                  $("#variableValue1").text(data);
+              });
+          }
+          
+          // Call the function initially
+          updateVariable1();
+          
+          // Set interval to call the function every second
+          setInterval(updateVariable1, 1000);
+      });
+      </script>
+
+      <!-- updates of variable2--> 
+      <script>
+      $(document).ready(function(){
+      // Function to update variable value every second
+                   function updateVariable2() {
+                       $.get("/get_variable2", function(data){
+                           $("#variableValue2").text(data);
+                       });
+                   }
+                   
+                   // Call the function initially
+                   updateVariable2();
+                   
+                   // Set interval to call the function every second
+                   setInterval(updateVariable2, 10);
+               });
+               </script>
+
+
+      <!-- updates of variable3--> 
+      <script>
+         $(document).ready(function(){
+         // Function to update variable value every second
+                      function updateVariable3() {
+                          $.get("/get_variable3", function(data){
+                              $("#variableValue3").text(data);
+                          });
+                      }
+                      
+                      // Call the function initially
+                      updateVariable3();
+                      
+                      // Set interval to call the function every second
+                      setInterval(updateVariable3, 100);
+                  });
+                  </script>
+
+</html>
